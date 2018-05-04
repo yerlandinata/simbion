@@ -12,9 +12,6 @@ jobs:
      - run: docker push registry.heroku.com/$HEROKU_APP_NAME/web:latest
 
  deploy:
-   branches: 
-     only: 
-       - master
    machine: true
    steps:
      - checkout
@@ -28,5 +25,8 @@ workflows:
     jobs:
       - build
       - deploy:
+          branches: 
+            only: 
+              - master
           requires:
             - build
