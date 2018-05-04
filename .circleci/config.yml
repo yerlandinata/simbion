@@ -1,6 +1,6 @@
 version: 2
 jobs:
- build:
+ build_and_deploy:
    machine: true
    steps:
      - checkout
@@ -15,3 +15,9 @@ jobs:
 
      # deploy the image
      - run: if [ "${CIRCLE_BRANCH}" == "master" ]; then docker push registry.heroku.com/$HEROKU_APP_NAME/web:latest; fi
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build_and_deploy
