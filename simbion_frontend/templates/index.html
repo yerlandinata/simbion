@@ -26,47 +26,43 @@
     </div>
 
     <div class="d-none" id="great-body">
-        <div class="d-none simbion-page" id="login">
+        <div class="simbion-page" id="home">
+        {% include "0_home/index.html" %}
+        </div>
+        <div class="simbion-page" id="login">
         {% include "1_login/index.html" %}
         </div>
-        <div class="d-none simbion-page" id="register">
+        <div class="simbion-page" id="register">
         {% include "2_register/index.html" %}
         </div>
-        <div class="d-none simbion-page" id="register-skema-beasiswa">
+        <div class="simbion-page" id="register-skema-beasiswa">
         {% include "3_register_skema_beasiswa/index.html" %}
         </div>
-        <div class="d-none simbion-page" id="info-beasiswa">
+        <div class="simbion-page" id="info-beasiswa">
         {% include "4_info_beasiswa/index.html" %}
         </div>
-        <div class="d-none simbion-page" id="register-beasiswa">
+        <div class="simbion-page" id="register-beasiswa">
         {% include "5_register_beasiswa/index.html" %}
         </div>
-        <div class="d-none simbion-page" id="give-beasiswa">
+        <div class="simbion-page" id="give-beasiswa">
         {% include "6_give_beasiswa/index.html" %}
         </div>
-        <div class="d-none simbion-page" id="info-wawancara">
+        <div class="simbion-page" id="info-wawancara">
         {% include "7_info_wawancara/index.html" %}
         </div>
-        <div class="d-none simbion-page" id="pengumuman-beasiswa">
+        <div class="simbion-page" id="pengumuman-beasiswa">
         {% include "8_pengumuman_beasiswa/index.html" %}
         </div>
-        <div class="d-none simbion-page" id="pembayaran-beasiswa">
+        <div class="simbion-page" id="pembayaran-beasiswa">
         {% include "9_pembayaran_beasiswa/index.html" %}
         </div>
+        
+        {% load static %}
+{% endblock %}
 
-        <script>
-
-            const switchPage = function(page) {
-                Array.from(document.getElementsByClassName('simbion-page')).forEach(e => {
-                    e.classList.add('d-none');
-                });
-                document.getElementById(page).classList.remove('d-none');
-                window.history.pushState("", page, page);
-            };
-
-            // window.history.pushState("new", "Baby", "/my-baby");
-            document.getElementById('default-body').classList.add('d-none');
-            document.getElementById('great-body').classList.remove('d-none');
-            switchPage('{{ page }}');
-        </script>
+{% block scripts %}
+<script>
+    let currentPage = "{{ page }}";   
+</script>
+<script src="{% static 'js/script.js' %}" > </script>
 {% endblock %}
