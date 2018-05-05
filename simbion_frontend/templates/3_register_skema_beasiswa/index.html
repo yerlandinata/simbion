@@ -1,1 +1,63 @@
-register_skema_beasiswa
+
+<form>
+    <div class="form-group">
+    <div class="row">
+        <div class="col-2">
+        <label>Kode</label>
+        </div>
+        <div class="col-10">
+            <input class="form-control" id="jenis" type="text" name="jenis" value="{{ jenis }}">
+        </div>
+    </div>
+    </div>
+    <div class="form-group">
+    <div class="row">
+        <div class="col-2">
+        <label>Nama Paket Beasiswa</label>
+        </div>
+        <div class="col-10">
+            <input class="form-control" id="nama_beasiswa" type="text" name="nama_beasiswa" value="{{ nama_beasiswa }}">
+        </div>
+    </div>
+    </div>
+    <div class="form-group">
+    <div class="row">
+        <div class="col-2">
+        <label>Jenis Paket Beaasiswa</label>
+        </div>
+        <div class="col-10">
+                <select name="Kode_beasiswa">
+                    {% for data in kode_list_skema %}
+                <option value="{{ data }}">
+                    {{ data }}
+                </option>
+                        {% endfor %}
+              </select>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="form-group">
+          <div class="row">
+            <div class="col-2">
+                <label for="example">Deskripsi</label>
+            </div>
+            <div class="form-group col-10">
+                <textarea class="form-control" rows="5" cols="100" id="desc" ></textarea>
+            </div> 
+          </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label>Syarat Beasiswa</label>
+            </div>
+            <div class="col-10">
+                <input class="form-control" id="nama_beasiswa" type="text" name="nama_beasiswa" value="{{ nama_beasiswa }}" >
+            </div>
+        </div>
+    </div>
+    <div>
+        <input type="submit" class="btn btn-info" value="Submit" style="margin-top:50px;margin-left:25%;margin-right:auto;width:50%;text-align:center">
+    </div>
+</form>
