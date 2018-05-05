@@ -11,7 +11,7 @@
                         <li class="p-2 nav-item"><a class="nav-link text-right" href="/info-beasiswa">List Beasiswa</a></li>
                         <li class="p-2 nav-item"><a class="nav-link text-right" href="/pengumuman-beasiswa">Pengumuman</a></li>
                         {% if not simbion_user %}
-                        <li class="p-2 nav-item"><button type="button" class="btn btn-light text-right" onclick="newPage('landing')">Login / Register</button></li>
+                        <li class="p-2 nav-item"><button type="button" class="btn btn-light text-right" onclick="newPage('login')">Login / Register</button></li>
                         {% else %}
                         <li class="p-2 nav-item"><a class="nav-link text-right">{{ simbion_user.name }}</a></li>
                         <li class="p-2 nav-item"><button type="button" class="btn btn-secondary text-right" onclick="logout()">Logout</button></li>
