@@ -17,6 +17,11 @@ const parseTitle = function(str) {
     return str.replace(/\b\w/g, (l) => { return l.toUpperCase() }).replace('-', ' ');
 };
 
+const logout = function() {
+    console.log('logout!');
+    newPage('home');
+}
+
 const initLinks = function() {
     Array.from(document.getElementsByTagName('a')).forEach(e => {
         console.log(e.getAttribute('href'));
