@@ -20,12 +20,17 @@
         {% include "8_pengumuman_beasiswa/index.html" %}
     {% elif page == "pembayaran-beasiswa" %}
         {% include "9_pembayaran_beasiswa/index.html" %}
+    {% elif page == "landing" %}
+        {% include "landing/index.html" %}
     {% else %}
         NOT FOUND
     {% endif %}
     </div>
 
     <div class="d-none" id="great-body">
+        <div class="simbion-page" id="landing">
+        {% include "landing/index.html" %}
+        </div>
         <div class="simbion-page" id="home">
         {% include "0_home/index.html" %}
         </div>
@@ -56,11 +61,13 @@
         <div class="simbion-page" id="pembayaran-beasiswa">
         {% include "9_pembayaran_beasiswa/index.html" %}
         </div>
+    </div>
         
-        {% load static %}
+        
 {% endblock %}
 
 {% block scripts %}
+{% load static %}
 <script>
     let currentPage = "{{ page }}";   
 </script>
