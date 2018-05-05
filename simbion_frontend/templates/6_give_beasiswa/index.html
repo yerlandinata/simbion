@@ -1,1 +1,37 @@
-give_beasiswa
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<table class="table" style="width:100%">
+  <tr>
+    <th>No Urut Pendaftar</th>
+    <th>Nama</th>
+    <th>NPM</th>
+     <th>Waktu Daftar</th>
+      <th>Status Terima</th>
+      <th>Pilih</th>
+
+  </tr>
+
+ {% for isi in table_content %}
+     <tr>
+     <td>{{ isi.noUrut }}</td>
+     <td>{{ isi.nama }}</td>
+     <td>{{ isi.npm }}</td>
+     <td>{{ isi.waktu }}</td>
+     <td>{{ isi.status }}</td>
+     <td>
+         <div class="btn-group-vertical">
+          <input type="submit" class="btn btn-info" value="Terima">
+
+         <br>
+          <input type="submit" class="btn btn-danger" value="Tolak">
+         </div>
+     </td>
+     </tr>
+
+
+      {% endfor %}
+
+</table>
