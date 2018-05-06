@@ -1,31 +1,11 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <div id="default-body">
-    {% if page == "login" %}
-        {% include "1_login/index.html" %}
-    {% elif page == "register" %}
-        {% include "2_register/index.html" %}
-    {% elif page == "register-skema-beasiswa" %}
-        {% include "3_register_skema_beasiswa/index.html" %}
-    {% elif page == "info-beasiswa" %}
-        {% include "4_info_beasiswa/index.html" %}
-    {% elif page == "register-beasiswa" %}
-        {% include "5_register_beasiswa/index.html" %}
-    {% elif page == "give-beasiswa" %}
-        {% include "6_give_beasiswa/index.html" %}
-    {% elif page == "info-wawancara" %}
-        {% include "7_info_wawancara/index.html" %}
-    {% elif page == "pengumuman-beasiswa" %}
-        {% include "8_pengumuman_beasiswa/index.html" %}
-    {% elif page == "pembayaran-beasiswa" %}
-        {% include "9_pembayaran_beasiswa/index.html" %}
-    {% else %}
-        NOT FOUND
-    {% endif %}
-    </div>
 
     <div class="d-none" id="great-body">
+        <div class="simbion-page" id="landing">
+        {% include "landing/index.html" %}
+        </div>
         <div class="simbion-page" id="home">
         {% include "0_home/index.html" %}
         </div>
@@ -34,6 +14,18 @@
         </div>
         <div class="simbion-page" id="register">
         {% include "2_register/index.html" %}
+        </div>
+        <div class="simbion-page" id="register-mahasiswa">
+        {% include "2_register/mahasiswa.html" %}
+        </div>
+        <div class="simbion-page" id="register-donatur">
+        {% include "2_register/donatur.html" %}
+        </div>
+        <div class="simbion-page" id="register-donatur-individual">
+        {% include "2_register/donatur-individual.html" %}
+        </div>
+        <div class="simbion-page" id="register-donatur-yayasan">
+        {% include "2_register/donatur-yayasan.html" %}
         </div>
         <div class="simbion-page" id="register-skema-beasiswa">
         {% include "3_register_skema_beasiswa/index.html" %}
@@ -56,11 +48,13 @@
         <div class="simbion-page" id="pembayaran-beasiswa">
         {% include "9_pembayaran_beasiswa/index.html" %}
         </div>
+    </div>
         
-        {% load static %}
+        
 {% endblock %}
 
 {% block scripts %}
+{% load static %}
 <script>
     let currentPage = "{{ page }}";   
 </script>

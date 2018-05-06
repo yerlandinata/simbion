@@ -17,6 +17,11 @@ const parseTitle = function(str) {
     return str.replace(/\b\w/g, (l) => { return l.toUpperCase() }).replace('-', ' ');
 };
 
+const logout = function() {
+    console.log('logout!');
+    newPage('home');
+}
+
 const initLinks = function() {
     Array.from(document.getElementsByTagName('a')).forEach(e => {
         console.log(e.getAttribute('href'));
@@ -27,6 +32,15 @@ const initLinks = function() {
     });
 }
 
+const checkConfirmPassword = function(input) {
+    if (input.value != document.getElementById('inputPassword').value) {
+        input.setCustomValidity('Password harus sama.');
+    } else {
+        // input is valid -- reset the error message
+        input.setCustomValidity('');
+    }
+};
+
 window.onpopstate = function(event) {
     console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
     switchPage(event.state);
@@ -34,7 +48,6 @@ window.onpopstate = function(event) {
 };
 
 const showProperPage = function() {
-    $("#default-body").addClass('d-none');
     Array.from($(".simbion-page")).forEach(e => {
         $(e).hide();
     });

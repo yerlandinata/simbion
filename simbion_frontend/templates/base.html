@@ -1,15 +1,19 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Simbion</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Armata|Nanum+Gothic" rel="stylesheet"> 
     </head>
     <body>
 
         {% include "navbar.html" %}
 
         <main role="main" class="container">
-            <div class="container m-3">
+            <div class="containe-fluidr m-3">
             {% block body %}
             {% endblock %}
             </div>
