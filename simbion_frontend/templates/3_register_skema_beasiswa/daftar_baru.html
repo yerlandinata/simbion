@@ -1,0 +1,113 @@
+
+<!-- Membuat beasiswa  -->
+<form>
+    <p1 style="font-size:30px">Membuat beasiswa</p1>
+    <br>
+    <br>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2 popup">
+                <span class="popuptext" id="kodePopUp">A Simple Popup!</span>
+                <label>Kode</label>
+            </div>
+            <div class="col-10">
+                <input class="form-control" id="jenis" type="text" name="jenis" value="{{ jenis }}">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2" id="nama_beasiswa">
+                <label>Nama Paket Beasiswa</label>
+            </div>
+            <div class="col-10">
+                <input class="form-control" id="nama_beasiswa" type="text" name="nama_beasiswa" value="{{ nama_beasiswa }}">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2" >
+                <label>Jenis Paket Beaasiswa</label>
+            </div>
+            <div class="col-10">
+                    <select id="jenis_paket" name="jenis_paket">
+                        {% for data in kode_list_skema %}
+                    <option value="{{ data }}">
+                        {{ data }}
+                    </option>
+                        {% endfor %}
+                    </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="example">Deskripsi</label>
+            </div>
+            <div class="form-group col-10">
+                <textarea class="form-control" rows="5" cols="100" id="deskripsi" ></textarea>
+            </div> 
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label>Syarat Beasiswa</label>
+            </div>
+            <div class="col-10">
+                <input class="form-control" id="syarat_beasiswa" type="text" name="syarat_beasiswa" value="{{ syarat_beasiswa }}" >
+            </div>
+        </div>
+    </div>
+    <div>
+        <button onclick="checkAvailability()" style="margin-top:50px;margin-left:25%;margin-right:auto;width:50%;text-align:center">Submit</button>
+    </div>
+        
+</form>
+<script>
+    var btn_submit = document.getElementById("submit_beasiswa");
+    var kode = document.getElementById("jenis");
+    var nama_beasiswa = document.getElementById("nama_beasiswa");
+    var syarat_beasiswa = document.getElementById("syarat_beasiswa");
+    var jenis_paket = document.getElementById("jenis_paket");
+    var deskripsi = document.getElementById("deskripsi");
+    var kodePopUp = document.getElementById("kodePopUp");
+    var list_jawaban = [];
+    //btn_submit.onclick(checkAvailability);
+    //btn_submit function
+    function checkAvailability(){
+        if(kode.value == ""){
+                    
+        }
+        else{
+            list_jawaban.push(kode.value);
+        }
+        if(nama_beasiswa.value == ""){
+
+        }
+        else{
+            list_jawaban.push(nama_beasiswa.value);
+        }    
+        if(syarat_beasiswa.value == ""){
+            
+        }   
+        else{
+            list_jawaban.push(syarat_beasiswa.value);
+        }
+        if(jenis_paket.value == ""){
+            
+        }
+        else{
+            list_jawaban.push(jenis_paket.value);
+        }
+        
+        if(deskripsi.value == ""){
+            
+        }      
+        else{
+            list_jawaban.push(deskripsi.value);
+        }
+    }
+</script>

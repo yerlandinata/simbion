@@ -149,7 +149,7 @@ chromedriver
 chromedriver.exe
 
 #Ignore static
-/praktikum/static/*
+/static
 
 # Rope project settings
 .ropeproject

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block body %}
+    <div id="default-body">
     {% if page == "login" %}
         {% include "1_login/index.html" %}
     {% elif page == "register" %}
@@ -22,4 +23,46 @@
     {% else %}
         NOT FOUND
     {% endif %}
+    </div>
+
+    <div class="d-none" id="great-body">
+        <div class="simbion-page" id="home">
+        {% include "0_home/index.html" %}
+        </div>
+        <div class="simbion-page" id="login">
+        {% include "1_login/index.html" %}
+        </div>
+        <div class="simbion-page" id="register">
+        {% include "2_register/index.html" %}
+        </div>
+        <div class="simbion-page" id="register-skema-beasiswa">
+        {% include "3_register_skema_beasiswa/index.html" %}
+        </div>
+        <div class="simbion-page" id="info-beasiswa">
+        {% include "4_info_beasiswa/index.html" %}
+        </div>
+        <div class="simbion-page" id="register-beasiswa">
+        {% include "5_register_beasiswa/index.html" %}
+        </div>
+        <div class="simbion-page" id="give-beasiswa">
+        {% include "6_give_beasiswa/index.html" %}
+        </div>
+        <div class="simbion-page" id="info-wawancara">
+        {% include "7_info_wawancara/index.html" %}
+        </div>
+        <div class="simbion-page" id="pengumuman-beasiswa">
+        {% include "8_pengumuman_beasiswa/index.html" %}
+        </div>
+        <div class="simbion-page" id="pembayaran-beasiswa">
+        {% include "9_pembayaran_beasiswa/index.html" %}
+        </div>
+        
+        {% load static %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+    let currentPage = "{{ page }}";   
+</script>
+<script src="{% static 'js/script.js' %}" > </script>
 {% endblock %}

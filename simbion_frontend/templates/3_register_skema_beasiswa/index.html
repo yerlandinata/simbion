@@ -1,63 +1,25 @@
 
-<form>
-    <div class="form-group">
-    <div class="row">
-        <div class="col-2">
-        <label>Kode</label>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">    
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs nav-justified" role="tablist">
+        <li style="width:40vw" role="presentation" class="active">
+            <a href="#beasiswa_baru" name="beasiswa_baru" aria-controls="home" role="tab" data-toggle="tab">Beasiswa Baru</a>
+        </li>
+        <li style="width:40vw" role="presentation">
+            <a href="#tambah_paket" name="tambah_paket" aria-controls="settings" role="tab" data-toggle="tab">Menambahkan Paket Beasiswa</a>
+        </li>
+</ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="beasiswa_baru">
+            <!-- Apply the same here -->
+            {% include '3_register_skema_beasiswa/tambah_paket.html' %}
         </div>
-        <div class="col-10">
-            <input class="form-control" id="jenis" type="text" name="jenis" value="{{ jenis }}">
-        </div>
-    </div>
-    </div>
-    <div class="form-group">
-    <div class="row">
-        <div class="col-2">
-        <label>Nama Paket Beasiswa</label>
-        </div>
-        <div class="col-10">
-            <input class="form-control" id="nama_beasiswa" type="text" name="nama_beasiswa" value="{{ nama_beasiswa }}">
-        </div>
-    </div>
-    </div>
-    <div class="form-group">
-    <div class="row">
-        <div class="col-2">
-        <label>Jenis Paket Beaasiswa</label>
-        </div>
-        <div class="col-10">
-                <select name="Kode_beasiswa">
-                    {% for data in kode_list_skema %}
-                <option value="{{ data }}">
-                    {{ data }}
-                </option>
-                        {% endfor %}
-              </select>
-            </div>
+        <div role="tabpanel" class="tab-pane fade" id="tambah_paket">
+            <!-- Apply the same here -->
+            {% include '3_register_skema_beasiswa/tambah_paket.html ' %}
         </div>
     </div>
-    </div>
-    <div class="form-group">
-          <div class="row">
-            <div class="col-2">
-                <label for="example">Deskripsi</label>
-            </div>
-            <div class="form-group col-10">
-                <textarea class="form-control" rows="5" cols="100" id="desc" ></textarea>
-            </div> 
-          </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-2">
-                <label>Syarat Beasiswa</label>
-            </div>
-            <div class="col-10">
-                <input class="form-control" id="nama_beasiswa" type="text" name="nama_beasiswa" value="{{ nama_beasiswa }}" >
-            </div>
-        </div>
-    </div>
-    <div>
-        <input type="submit" class="btn btn-info" value="Submit" style="margin-top:50px;margin-left:25%;margin-right:auto;width:50%;text-align:center">
-    </div>
-</form>
+    
