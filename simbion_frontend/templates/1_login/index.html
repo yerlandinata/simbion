@@ -3,16 +3,16 @@
         <h2 class="p-2 border-bottom">Login</h2>
     </div>
 </div>
-<div class="row">
+<div class="row container">
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
         <form>
             <div class="form-group">
                 <label for="username-input">Username SIMBION</label>
-                <input type="text" class="form-control" id="username-input" placeholder="Masukkan username">
+                <input type="text" class="form-control" id="username-input" placeholder="Masukkan username" maxlength="20" required>
             </div>
             <div class="form-group">
                 <label for="password-input">Password</label>
-                <input type="password" class="form-control" id="password-input" placeholder="Password">
+                <input type="password" class="form-control" id="password-input" placeholder="Password" minlength="8" required>
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
