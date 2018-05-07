@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-lg bg-dark">
         <div class="container">
             <a class="navbar-brand simbion-logo" href="/landing">SIMBION</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,12 +10,59 @@
                     <ul class="navbar-nav">
                         <li class="p-2 nav-item"><a class="nav-link text-right" href="/info-beasiswa">List Beasiswa</a></li>
                         <li class="p-2 nav-item"><a class="nav-link text-right" href="/pengumuman-beasiswa">Pengumuman</a></li>
-                        {% if not simbion_user %}
-                        <li class="p-2 nav-item"><button type="button" class="btn btn-light text-right" onclick="newPage('login')">Login / Register</button></li>
-                        {% else %}
-                        <li class="p-2 nav-item"><a class="nav-link text-right">{{ simbion_user.name }}</a></li>
-                        <li class="p-2 nav-item"><button type="button" class="btn btn-secondary text-right" onclick="logout()">Logout</button></li>
-                        {% endif %}
+                        <li class="p-2 nav-item role-norole"><button type="button" class="btn btn-light text-right" onclick="newPage('login')">Login / Register</button></li>
+                        <li class="p-2 nav-item role-mahasiswa">
+                            <div class="dropdown">
+                                <div class="btn dropdown-toggle nav-link text-right" type="button" data-toggle="dropdown">Menu Mahasiswa
+                                    <span class="caret"></span></div>
+                                    <div class="dropdown-menu container bg-dark shadow-lg">
+                                        <div class="d-flex flex-column">
+                                            <a href="/info-beasiswa" class="p-2 text-center border-bottom role-mahasiswa nav-link">Lihat Status Beasiswa</a>
+                                            <a href="/register-beasiswa" class="p-2 text-center border-bottom role-mahasiswa nav-link">Lamar Beasiswa</a>
+                                            <a href="/info-beasiswa" class="p-2 text-center border-bottom role-mahasiswa nav-link">Lihat Hasil Seleksi</a>
+                                        </div>
+                                    </div>
+                            </div> 
+                        </li>
+                        <li class="p-2 nav-item role-donatur">
+                            <div class="dropdown">
+                                <div class="btn dropdown-toggle nav-link text-right" type="button" data-toggle="dropdown">Menu Donatur
+                                    <span class="caret"></span></div>
+                                    <div class="dropdown-menu container bg-dark shadow-lg">
+                                        <div class="d-flex flex-column">
+                                            <a href="/give-beasiswa" class="p-2 text-center border-bottom role-donatur nav-link">Lihat Beasiswa Anda</a>
+                                            <a href="/register-skema-beasiswa" class="p-2 text-center border-bottom role-donatur nav-link">Buat Beasiswa</a>
+                                            <a href="/pengumuman-beasiswa" class="p-2 text-center border-bottom role-donatur nav-link">Buat Pengumuman</a>
+                                        </div>
+                                    </div>
+                            </div> 
+                        </li>
+                        <li class="p-2 nav-item role-admin">
+                            <div class="dropdown">
+                                <div class="btn dropdown-toggle nav-link text-right" type="button" data-toggle="dropdown">Menu Admin
+                                    <span class="caret"></span></div>
+                                    <div class="dropdown-menu container bg-dark shadow-lg">
+                                        <div class="d-flex flex-column">
+                                            <a href="/info-wawancara" class="p-2 text-center border-bottom role-admin nav-link">Lihat Tempat Wawancara</a>
+                                            <a href="/info-wawancara" class="p-2 text-center border-bottom role-admin nav-link">Buat Tempat Wawancara</a>
+                                            <a href="/pengumuman-beasiswa" class="p-2 text-center border-bottom role-admin nav-link">Buat Pengumuman</a>
+                                        </div>
+                                    </div>
+                            </div> 
+                        </li>
+                        <li class="p-2 nav-item role-admin role-donatur role-mahasiswa">
+                            <div class="dropdown">
+                                <div class="btn dropdown-toggle nav-link" type="button" data-toggle="dropdown">
+                                    <span class="simbion-user-name"></span>
+                                    <span class="caret"></span>
+                                </div>
+                                    <div class="dropdown-menu container shadow-sm">
+                                        <div class="d-flex flex-column">
+                                            <div class="p-2 text-center btn" onclick="logout()">Logout</div>
+                                        </div>
+                                    </div>
+                            </div> 
+                        </li>
                     </ul>
                 </div>
             </div>
