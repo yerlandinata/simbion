@@ -1,7 +1,7 @@
 const newPage = function(page) {
     switchPage(page);
     window.history.pushState(currentPage, page, page);
-}
+};
 
 const switchPage = function(page) {
     Array.from($(".simbion-page")).forEach(e => {
@@ -20,17 +20,39 @@ const parseTitle = function(str) {
 const logout = function() {
     console.log('logout!');
     newPage('home');
-}
+};
+
+const activateUser = function(user) {
+    Array.from($('.simbion-user-name'))
+        .forEach(e => $(e).text(user.name));
+    activateRole(user.role);
+};
+
+const activateRole = function(role) {
+    Array.from($('.role-norole'))
+        .forEach(e => $(e).fadeOut(250));
+    Array.from($('.role-' + role))
+        .forEach(e => $(e).fadeIn(250));
+};
+
+const deactivateRole = function() {
+    Array.from(['admin', 'mahasiswa', 'donatur'])
+    .forEach(role => {
+        Array.from($('.role-' + role))
+            .forEach(e => $(e).fadeOut(250));
+    });
+    Array.from($('.role-norole'))
+        .forEach(e => $(e).fadeIn(100));
+};
 
 const initLinks = function() {
     Array.from(document.getElementsByTagName('a')).forEach(e => {
-        console.log(e.getAttribute('href'));
         e.onclick = () => {
             newPage(e.getAttribute('href').substr(1));
             return false;
         };
     });
-}
+};
 
 const checkConfirmPassword = function(input) {
     if (input.value != document.getElementById('inputPassword').value) {
@@ -48,6 +70,7 @@ window.onpopstate = function(event) {
 };
 
 const showProperPage = function() {
+    deactivateRole();
     Array.from($(".simbion-page")).forEach(e => {
         $(e).hide();
     });
