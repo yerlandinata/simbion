@@ -1,0 +1,23 @@
+version: 2
+jobs:
+ build_and_deploy:
+   machine: true
+   steps:
+     - checkout
+     
+     ### deploy to HEROKU
+     
+     # login to heroku docker registry
+     - run: docker login --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com
+
+     # build the application image
+     - run: docker build --rm=false -t registry.heroku.com/$HEROKU_APP_NAME/web .
+
+     # deploy the image
+     - run: if [ "${CIRCLE_BRANCH}" == "master" ]; then docker push registry.heroku.com/$HEROKU_APP_NAME/web:latest; fi
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build_and_deploy
