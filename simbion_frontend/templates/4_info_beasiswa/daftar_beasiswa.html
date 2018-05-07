@@ -1,0 +1,64 @@
+<!-- CSS -->
+<style>
+    #informasi-beasiswa{
+        display: none;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 8px;
+        
+    }
+
+    tr:nth-child(even){background-color: #f2f2f2}
+
+    th {
+        background-color: #343a40;
+        color: white;
+        text-align: center;
+    }
+    h1{
+        font-weight: bold;
+        font-family: 'Armata';
+    }
+</style>
+
+<h1>DAFTAR BEASISWA</h1>
+
+<div id="beasiswa-table">
+    <table class="table table-bordered" id="list-beasiswa">
+            <thead>
+                <tr>
+                <th>Nama Beasiswa</th>
+                <th>Waktu Tutup Pendaftaran</th>
+                <th>Status beasiswa</th>
+                <th>Jumlah Pendaftar</th>
+                <th>Informasi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bank Indonesia</td>
+                    <td>9/11/2019</td>
+                    <td>Dibuka</td>
+                    <td>93</td>
+                    <td><button onclick="buka_info_beasiswa()" type="button" class="btn btn-default" href="#informasi-beasiswa">Lihat Beasiswa</button></td>
+                </tr>
+            </tbody>
+    </table>
+</div>
+
+<div id="informasi-beasiswa">
+    {% include '4_info_beasiswa/informasi_lengkap_beasiswa.html' %}
+</div>
+<!-- JAVASCRIPT -->
+<script>
+    function buka_info_beasiswa(){
+        $("#list-beasiswa").fadeOut();
+        $("#informasi-beasiswa").fadeIn(3000);
+    }
+</script>

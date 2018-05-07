@@ -2,24 +2,48 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">    
 
 <!-- Nav tabs -->
-<ul class="nav nav-tabs nav-justified" role="tablist">
-        <li style="width:40vw" role="presentation" class="active">
-            <a href="#beasiswa_baru" name="beasiswa_baru" aria-controls="home" role="tab" data-toggle="tab">Beasiswa Baru</a>
+<h1 style="text-align:center;margin-bottom:80px;margin-top:150px" id="first_in">PENDAFTARAN PAKET BEASISWA</h1>
+<ul class="nav nav-tabs nav-justified row" role="tablist">
+        <li role="presentation" class="active col-md-6 col-sm-12">
+            <button onclick="myFunction()" class="btn btn-outline-secondary text-center container-fluid" type="button" style="font-size:20px;font-weight:bold">Beasiswa Baru</button>
         </li>
-        <li style="width:40vw" role="presentation">
-            <a href="#tambah_paket" name="tambah_paket" aria-controls="settings" role="tab" data-toggle="tab">Menambahkan Paket Beasiswa</a>
+        <li role="presentation" class="col-md-6 col-sm-12">
+            <button onclick="myFunction2()" class="btn btn-outline-secondary text-center container-fluid" type="button" style="font-size:20px;font-weight:bold">Menambahkan Paket Beasiswa</button>
         </li>
 </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane fade in active" id="beasiswa_baru">
+        <div role="tabpanel" class="" id="beasiswa_baru" style="display:none">
+            <!-- Apply the same here -->
+            {% include '3_register_skema_beasiswa/daftar_baru.html' %}
+        </div>
+        <div role="tabpanel" class="" id="tambah_paket" style="display:none">
             <!-- Apply the same here -->
             {% include '3_register_skema_beasiswa/tambah_paket.html' %}
         </div>
-        <div role="tabpanel" class="tab-pane fade" id="tambah_paket">
-            <!-- Apply the same here -->
-            {% include '3_register_skema_beasiswa/tambah_paket.html ' %}
-        </div>
-    </div>
-    
+    </div>      
+    <script>
+        function myFunction() {
+            var z = document.getElementById("submitKuy");
+            var x = document.getElementById("beasiswa_baru");
+            var y = document.getElementById("tambah_paket");
+            var a = document.getElementById("first_in");
+            z.style.display = "block";
+            x.style.display = "block";
+            y.style.display = "none";
+            a.style.display = "none";
+        }
+
+        function myFunction2(){
+            var a = document.getElementById("first_in");
+            var z = document.getElementById("submitKuy");
+            var x = document.getElementById("beasiswa_baru");
+            var y = document.getElementById("tambah_paket");
+            z.style.display = "block";
+            x.style.display = "none";
+            y.style.display = "block";
+            a.style.display = "none";
+        }
+
+    </script>
