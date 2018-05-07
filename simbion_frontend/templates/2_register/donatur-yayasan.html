@@ -1,0 +1,66 @@
+<h2 class="p-2 border-bottom">Pendaftaran Yayasan Donatur</h2>
+<div class="container">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputUsernameDy">Username SIMBION</label>
+                <input type="text" class="form-control" id="inputUsernameDy" placeholder="Username" maxlength="20" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputEmailDy">Email</label>
+                <input type="email" class="form-control" id="inputEmailDy" placeholder="Email" maxlength="50" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputPasswordDy">Password</label>
+                <input type="password" class="form-control" id="inputPasswordDy" placeholder="Buat password baru" 
+                    maxlength="20" minlength="8" required>
+                <small>Password harus terdiri dari 8 karakter alfanumerik</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword2Dy">Konfirmasi Password</label>
+                <input type="password" class="form-control" id="inputPassword2Dy" placeholder="Konfirmasi, tulis ulang password" 
+                    maxlength="20" minlength="8" oninput="checkConfirmPassword(this)" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputNamaDy">Nama Yayasan</label>
+                <input type="text" class="form-control" id="inputNamaDy" placeholder="Nama yayasan" maxlength="50" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputSkDy">No. SK Yayasan</label>
+                <input type="text" class="form-control" id="inputSkDy" placeholder="SK" maxlength="20" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputIdDy">Nomor Identitas</label>
+                <input type="text" class="form-control" id="inputIdDy" placeholder="Nomor identitas" maxlength="50" required>
+                <small>Nomor identitas yang telah diberikan pihak Universitas</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputNpwpDy">NPWP</label>
+                <input type="text" class="form-control" id="inputNpwpDy" placeholder="NPWP" minlength="20" maxlength="20" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddressDy">Alamat Yayasan</label>
+            <input type="text" class="form-control" id="inputAddressDy" placeholder="Alamat yayasan" maxlength="50" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-8 offset-md-2">
+                <label for="inputNotelDy">Nomor Telepon Contact Person</label>
+                <input type="tel" class="form-control" id="inputNotelDy" placeholder="Contoh: +62 812 3456 7890" maxlength="20">
+            </div>
+        </div> 
+        <div class="form-row m-5">
+            <div class="form-group col-md-8 offset-md-2">
+                <button type="submit" class="btn btn-primary btn-block">Daftar</button>    
+            </div>    
+        </div>       
+        
+    </form>
+    
+</div>

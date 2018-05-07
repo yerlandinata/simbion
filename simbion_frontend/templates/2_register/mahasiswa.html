@@ -1,0 +1,73 @@
+<h2 class="p-2 border-bottom">Pendaftaran Mahasiswa</h2>
+<div class="container">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputUsernameRm">Username SIMBION</label>
+                <input type="text" class="form-control" id="inputUsernameRm" placeholder="Username" maxlength="20" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputEmailRm">Email</label>
+                <input type="email" class="form-control" id="inputEmailRm" placeholder="Email" maxlength="50" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputPasswordRm">Password</label>
+                <input type="password" class="form-control" id="inputPasswordRm" placeholder="Buat password baru" 
+                    maxlength="20" minlength="8" required>
+                <small>Password harus terdiri dari 8 karakter alfanumerik</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword2Rm">Konfirmasi Password</label>
+                <input type="password" class="form-control" id="inputPassword2Rm" placeholder="Konfirmasi, tulis ulang password" 
+                    maxlength="20" minlength="8" oninput="checkConfirmPassword(this)" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputNamaRm">Nama Lengkap</label>
+                <input type="text" class="form-control" id="inputNamaRm" placeholder="Nama lengkap" maxlength="50" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputNpmRm">Nomor Pokok Mahasiswa</label>
+                <input type="text" class="form-control" id="inputNpmRm" placeholder="NPM" maxlength="20" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddressRm">Alamat Tempat Tinggal</label>
+            <input type="text" class="form-control" id="inputAddressRm" placeholder="Alamat tinggal sekarang" maxlength="50" required>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress2">Alamat Domisili</label>
+            <input type="text" class="form-control" id="inputAddress2Rm" placeholder="Alamat KTP" maxlength="50" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-8 offset-md-2">
+                <label for="inputNotelRm">Nomor Telepon</label>
+                <input type="tel" class="form-control" id="inputNotelRm" placeholder="Contoh: +62 812 3456 7890" maxlength="20">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputBankRm">Nama Instansi Bank</label>
+                <input type="text" class="form-control" id="inputBankRm" placeholder="Contoh: Mandiri, BCA, BNI, dll" maxlength="50" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputRekeningRm">Nomor Rekening</label>
+                <input type="text" class="form-control" id="inputRekeningRm" placeholder="No. rek" maxlength="20" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPemilikRm">Nama Pemilik Rekening</label>
+                <input type="text" class="form-control" id="inputPemilikRm" placeholder="Nama pemilik rekening" maxlength="20" required>
+            </div>
+        </div>
+        
+        <div class="form-row m-5">
+            <div class="form-group col-md-4 offset-md-4">
+                <button type="submit" class="btn btn-primary btn-block">Daftar</button>    
+            </div>    
+        </div>  
+    </form>
+    
+</div>
