@@ -1,13 +1,3 @@
-#!/bin/bash
-
-folder="${PWD##*/}";
-cd ..;
-ls -la;
-tar -czf deploy.tar.gz $folder;
-ls -la;
-mv deploy.tar.gz $folder;
-cd $folder;
-scp deploy.tar.gz yudhistira.erlandinata@kawung.cs.ui.ac.id;
 ssh yudhistira.erlandinata@kawung.cs.ui.ac.id "
     scp deploy.tar.gz enau.cs.ui.ac.id;
     ssh enau.cs.ui.ac.id '

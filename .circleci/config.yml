@@ -19,6 +19,8 @@ jobs:
      # deploy to enau.cs.ui.ac.id
      - run: >
         if [ "master" == "master" ]; then
+          source enau_build.sh;
+          scp deploy.tar.gz yudhistira.erlandinata@kawung.cs.ui.ac.id;
           source enau_deploy.sh;
         fi
 
