@@ -14,6 +14,7 @@ ssh yudhistira.erlandinata@kawung.cs.ui.ac.id "
         export all_proxy=\"http://proxy.cs.ui.ac.id:8080/\";
         python3 -m virtualenv env; source env/bin/activate;
         pip install -r requirements.txt;
-        gunicorn -b 0.0.0.0:8020 simbion.wsgi & sleep 5; exit;
-    '
+        gunicorn -b 0.0.0.0:8020 simbion.wsgi & exit;
+    ';
+    echo DEPLOYED!;
 ";
