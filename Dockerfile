@@ -6,5 +6,6 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 ADD . /app
 RUN python manage.py collectstatic --noinput
+RUN python manage.py test
 
 CMD if [ "$PORT" = "" ]; then gunicorn -b 0.0.0.0:8000 simbion.wsgi; else gunicorn -b 0.0.0.0:$PORT simbion.wsgi; fi
