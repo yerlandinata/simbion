@@ -3,16 +3,17 @@
 folder="${PWD##*/}";
 cd ..;
 ls -la;
-tar -czf ${CIRCLE_SHA1}.tar.gz $folder;
+tar -czf deploy.tar.gz $folder;
 ls -la;
-scp ${CIRCLE_SHA1}.tar.gz yudhistira.erlandinata@kawung.cs.ui.ac.id;
+scp deploy.tar.gz yudhistira.erlandinata@kawung.cs.ui.ac.id;
 ssh yudhistira.erlandinata@kawung.cs.ui.ac.id "
-    scp ${CIRCLE_SHA1}.tar.gz enau.cs.ui.ac.id;
+    scp deploy.tar.gz enau.cs.ui.ac.id;
     ssh enau.cs.ui.ac.id '
         source resetweb.sh;
-        mv ${CIRCLE_SHA1}.tar.gz web/;
+        mv deploy.tar.gz web/;
         cd web;
-        tar -xzf ${CIRCLE_SHA1}.tar.gz;
+        tar -xzf deploy.tar.gz;
+        export all_proxy=\"http://proxy.cs.ui.ac.id:8080/\"
         python3 -m virtualenv env; source env/bin/activate;
         cd $folder;
         pip install -r requirements.txt;
