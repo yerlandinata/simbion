@@ -4,9 +4,7 @@ jobs:
    machine: true
    steps:
      - checkout
-     
-     ### deploy to HEROKU
-     
+          
      # login to heroku docker registry
      - run: docker login --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com
 
@@ -18,12 +16,12 @@ jobs:
 
      # deploy to enau.cs.ui.ac.id
      - run: >
-        if [ "master" == "master" ]; then
+        if [ "${CIRCLE_BRANCH}" == "master" ]; then
           source enau_deploy.sh;
         fi
 
 workflows:
   version: 2
-  build_and_test:
+  build-and-deploy:
     jobs:
       - build_and_deploy
