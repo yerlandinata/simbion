@@ -13,8 +13,16 @@ jobs:
      # build the application image
      - run: docker build --rm=false -t registry.heroku.com/$HEROKU_APP_NAME/web .
 
-     # deploy the image
+     # deploy the image to heroku
      - run: if [ "${CIRCLE_BRANCH}" == "master" ]; then docker push registry.heroku.com/$HEROKU_APP_NAME/web:latest; fi
+
+     # deploy to enau.cs.ui.ac.id
+     - run: >
+        if [ "master" == "master" ]; then
+          tar -czvf ${CIRCLE_SHA1}.tar.gz .;
+          scp ${CIRCLE_SHA1}.tar.gz yudhistira.erlandinata@kawung.cs.ui.ac.id;
+          ssh yudhistira.erlandinata@kawung.cs.ui.ac.id "scp ${CIRCLE_SHA1}.tar.gz enau.cs.ui.ac.id; ssh enau.cs.ui.ac.id 'source resetweb.sh; mv ${CIRCLE_SHA1}.tar.gz web/; cd web; tar -xvzf ${CIRCLE_SHA1}.tar.gz; python3 virtualenv env; source env/bin/activate; cd simbion; pip install -r requirements.txt; gunicorn -b 0.0.0.0:8020 simbion.wsgi & sleep 5;'";
+        fi
 
 workflows:
   version: 2
