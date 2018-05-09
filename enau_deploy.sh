@@ -13,7 +13,7 @@ ssh yudhistira.erlandinata@kawung.cs.ui.ac.id "
         mv deploy.tar.gz web/;
         cd web;
         tar -xzf deploy.tar.gz;
-        export all_proxy=\"http://proxy.cs.ui.ac.id:8080/\"
+        export all_proxy=\"http://proxy.cs.ui.ac.id:8080/\";
         python3 -m virtualenv env; source env/bin/activate;
         cd $folder;
         pip install -r requirements.txt;
