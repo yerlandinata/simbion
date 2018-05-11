@@ -19,6 +19,6 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('web/', include('simbion_frontend.urls')),
-    path('', RedirectView.as_view(url='web/landing'))
+    path('web/', include('simbion_mvc.urls')),
+    path('', RedirectView.as_view(url='web/home'))
 ]

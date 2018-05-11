@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="d-flex flex-column justify-content-center">
+        
+    <div class="d-flex flex-row justify-content-center flex-wrap">
+        <div class="p-2"><h2>Pendaftaran</h2></div>
+        <div class="p-2"><h2>Donatur</h2></div>
+    </div>
+    
+    <div class="d-flex flex-row m-4 justify-content-center flex-wrap">
+        <div class="p-2"><a href="{% url 'register-donatur-individual' %}" class="btn btn-light btn-lg"><h4>Donatur Individual</h4></a></div>
+        <div class="p-2"><a href="{% url 'register-donatur-yayasan' %}" class="btn btn-light btn-lg"><h4>Yayasan Donatur</h4></a></div>
+    </div>
+
+</div>
+{% endblock %}
