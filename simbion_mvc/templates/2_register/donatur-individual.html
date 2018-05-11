@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h2 class="p-2 border-bottom">Pendaftaran Donatur Individual</h2>
+<div class="container">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputUsernameDi">Username SIMBION</label>
+                <input type="text" class="form-control" id="inputUsernameDi" placeholder="Username" maxlength="20" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputEmailDi">Email</label>
+                <input type="email" class="form-control" id="inputEmailDi" placeholder="Email" maxlength="50" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputPasswordDi">Password</label>
+                <input type="password" class="form-control" id="inputPasswordDi" placeholder="Buat password baru" 
+                    maxlength="20" minlength="8" required>
+                <small>Password harus terdiri dari 8 karakter alfanumerik</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword2Di">Konfirmasi Password</label>
+                <input type="password" class="form-control" id="inputPassword2Di" placeholder="Konfirmasi, tulis ulang password" 
+                    maxlength="20" minlength="8" oninput="checkConfirmPassword(this)" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputNamaDi">Nama Lengkap</label>
+                <input type="text" class="form-control" id="inputNamaDi" placeholder="Nama lengkap" maxlength="50" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputNikDi">NIK</label>
+                <input type="text" class="form-control" id="inputNikDi" placeholder="NIK" minlength="16" maxlength="16" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputIdDi">Nomor Identitas</label>
+                <input type="text" class="form-control" id="inputIdDi" placeholder="Nomor identitas" maxlength="50" required>
+                <small>Nomor identitas yang telah diberikan pihak Universitas</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputNpwpDi">NPWP</label>
+                <input type="text" class="form-control" id="inputNpwpDi" placeholder="NPWP" minlength="20" maxlength="20" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="InputAddressDi">Alamat Lengkap</label>
+            <input type="text" class="form-control" id="InputAddressDi" placeholder="Alamat Lengkap" maxlength="50" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-8 offset-md-2">
+                <label for="InputNotelDi">Nomor Telepon</label>
+                <input type="tel" class="form-control" id="InputNotelDi" placeholder="Contoh: +62 812 3456 7890" maxlength="20">
+            </div>
+        </div> 
+        <div class="form-row m-5">
+            <div class="form-group col-md-8 offset-md-2">
+                <button type="submit" class="btn btn-primary btn-block">Daftar</button>    
+            </div>    
+        </div>       
+        
+    </form>
+    
+</div>
+{% endblock %}

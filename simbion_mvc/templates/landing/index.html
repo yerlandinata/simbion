@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="d-flex flex-column justify-content-center mt-5">
+    
+    <div class="d-flex flex-row justify-content-center flex-wrap">
+        <div class="p-2"><h1>Selamat</h1></div>
+        <div class="p-2"><h1>Datang</h1></div>
+        <div class="p-2"><h1>di</h1></div>
+    </div>
+    <div class="d-flex flex-row m-3 justify-content-center flex-wrap simbion-logo border-bottom">
+        <div class="p-2"><h1>Sistem</h1></div>
+        <div class="p-2"><h1>Informasi</h1></div>
+        <div class="p-2"><h1>Beasiswa</h1></div>
+        <div class="p-2"><h1>Online</h1></div>
+    </div>
+
+    <p class="text-center font-italic">Semua orang berhak memperoleh kesempatan yang sama dalam memperoleh pendidikan tinggi.</p>
+
+    <div class="d-flex flex-row m-4 justify-content-center flex-wrap">
+        <div class="p-2"><a href="{% url 'login' %}" class="btn btn-light btn-lg"><h2>Masuk</h2></a></div>
+        <div class="p-2"><a href="{% url 'register' %}" class="btn btn-light btn-lg"><h2>Daftar</h2></a></div>
+    </div>
+
+</div>
+{% endblock %}
