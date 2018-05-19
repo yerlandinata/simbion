@@ -89,11 +89,11 @@ else:
             'OPTIONS': {
                 'options': '-c search_path=simbion'
             },
-            'NAME': os.environ.get('DB_NAME', ''),
-            'USER': os.environ.get('DB_USER', ''),
-            'PASSWORD': os.environ.get('DB_PASS',''),
-            'HOST': os.environ.get('DB_HOST', ''),
-            'PORT': os.environ.get('DB_PORT', ''),
+            'NAME': os.environ.get('DB_NAME', 'dummy'),
+            'USER': os.environ.get('DB_USER', 'dummy'),
+            'PASSWORD': os.environ.get('DB_PASS','dummy'),
+            'HOST': os.environ.get('DB_HOST', 'dum.my'),
+            'PORT': os.environ.get('DB_PORT', '5432'),
         }
     }
 
