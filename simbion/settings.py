@@ -75,12 +75,19 @@ WSGI_APPLICATION = 'simbion.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-if os.environ.get('MACHINE') == 'test':
-    print('test!')
-    from .db_test import DATABASES
-else:
-    print('postgres!')
-    from .db_prod import DATABASES
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {
+            'options': '-c search_path=simbion'
+        },
+        'NAME': os.environ.get('DB_NAME', 'dummy'),
+        'USER': os.environ.get('DB_USER', 'dummy'),
+        'PASSWORD': os.environ.get('DB_PASS','dummy'),
+        'HOST': os.environ.get('DB_HOST', 'cs.ui.ac.id'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
