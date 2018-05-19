@@ -4,7 +4,7 @@ class UserDao:
 
     def get_by_id(self, pk):
         return User('dummy', 'dummy')
-
+        
     def insert(self, user):
         pass
 
