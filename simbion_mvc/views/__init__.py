@@ -9,6 +9,7 @@ from .pengumuman import pengumuman
 from .pembayaran import pembayaran
 from .register_skema_beasiswa import register_skema_beasiswa
 from .info_beasiswa import info_beasiswa
+from .detail_beasiswa import detail_beasiswa
 
 def home(request):
     return render(request, 'landing/index.html')
