@@ -1,7 +1,6 @@
 import logging
 from django.db import connection
 from django.core.exceptions import EmptyResultSet
-from django.db.utils import DataError, IntegrityError
 from . import user_dao
 from simbion_mvc.entity import Mahasiswa
 
