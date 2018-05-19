@@ -1,1 +1,9 @@
-info_beasiswa
+{% extends 'base.html' %}
+
+{% block body %}
+<!-- info_beasiswa -->
+<div id="page_table">
+    <!--Include table from another html-->
+    {% include '4_info_beasiswa/daftar_beasiswa.html' %}
+</div>
+{% endblock %}
