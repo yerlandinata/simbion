@@ -77,11 +77,17 @@ WSGI_APPLICATION = 'simbion.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {
+            'options': '-c search_path=simbion'
+        },
+        'NAME': os.environ.get('DB_NAME', 'dummy'),
+        'USER': os.environ.get('DB_USER', 'dummy'),
+        'PASSWORD': os.environ.get('DB_PASS','dummy'),
+        'HOST': os.environ.get('DB_HOST', 'cs.ui.ac.id'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators

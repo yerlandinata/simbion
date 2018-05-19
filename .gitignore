@@ -161,6 +161,9 @@ db.sqlite3
 #Ignore passwords
 /env.ps1
 /env.sh
+dev_env.sh
+env.bat
+env.ps1
 
 #Ignore vscode
 .vscode/
