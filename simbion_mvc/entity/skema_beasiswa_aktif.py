@@ -2,7 +2,7 @@ from .entity import Entity
 
 class SkemaBeasiswaAktif(Entity):
 
-    def __init__(self, kode_skema_beasiswa, 
+    def __init__(self, skema_beasiswa,kode_skema_beasiswa, 
                 no_urut, 
                 tgl_mulai_pendaftaran, 
                 tgl_tutup_pendaftaran, 
@@ -12,7 +12,10 @@ class SkemaBeasiswaAktif(Entity):
                         'tgl_mulai_pendaftaran': tgl_mulai_pendaftaran, 
                         'tgl_tutup_pendaftaran': tgl_tutup_pendaftaran,
                         'periode_penerimaan':periode_penerimaan,
-                        'status':status})
+                        'status':status
+                        #store actual data of skema_beasiswa
+                        'skema_beasiswa':skema_beasiswa.data})
+        self.__skema_beasiswa = skema_beasiswa
 
     def getKodeSkemaBeasiswa(self):
         return self.data['kode_skema_beasiswa']
@@ -31,12 +34,16 @@ class SkemaBeasiswaAktif(Entity):
     
     def getStatus(self):
         return self.data['status']
+    
+    def getSkemaBeasiswa(self):
+        return self.__skema_beasiswa
 
     def __str__(self):
         return 'Skema Beasiswa Aktif: Kode skema beasiswa={}, nomor urut={}, Tanggal mulai pendaftaran={}, Tanggal tutup pendaftaran={}, Status={}'.format(
                 self.getKodeSkemaBeasiswa(), self.getNoUrut(), 
                 self.getTglMulaiPendaftaran(), self.getTglTutupPendaftaran(),
-                self.getPeriodePenerimaan(), self.getStatus()
+                self.getPeriodePenerimaan(), self.getStatus(),
+                self.getSkemaBeasiswa()
             )
     def __repr__(self):
         return self.__str__()
