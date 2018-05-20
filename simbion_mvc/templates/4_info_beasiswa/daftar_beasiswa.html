@@ -44,19 +44,19 @@
                     <td>9/11/2019</td>
                     <td>Dibuka</td>
                     <td>93</td>
-                    <td><button onclick="buka_info_beasiswa()" type="button" class="btn btn-default" href="#informasi-beasiswa">Lihat Beasiswa</button></td>
+                    <td><a href="{% url 'detail-beasiswa' %}" class="btn btn-default">Lihat Beasiswa</a></td>
                 </tr>
+                {% if beasiswa_list %}
+                    {% for beasiswa in beasiswa_list %}
+                    <tr>
+                        <td>{{beasiswa.nama}}</td>
+                        <td>{{beasiswa.tgl_tutup_pendaftaran}}</td>
+                        <td>Dibuka</td>
+                        <td>{{beasiswa.jumlah_pendaftar}}</td>
+                        <td><a href="{% url 'detail-beasiswa' %}" class="btn btn-default">Lihat Beasiswa</a></td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
             </tbody>
     </table>
 </div>
-
-<div id="informasi-beasiswa">
-    {% include '4_info_beasiswa/informasi_lengkap_beasiswa.html' %}
-</div>
-<!-- JAVASCRIPT -->
-<script>
-    function buka_info_beasiswa(){
-        $("#beasiswa-table").fadeOut();
-        $("#informasi-beasiswa").fadeIn(3000);
-    }
-</script>
