@@ -18,7 +18,6 @@ class User(Entity):
         return 'Pengguna: username={}, password={}, role={}'.format(
                 self.getUsername(), self.getPassword(), self.getRole()
             )
-
     def __repr__(self):
         return self.__str__()
         
