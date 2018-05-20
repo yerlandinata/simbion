@@ -45,3 +45,11 @@ def require_role(mahasiswa=False, donatur=False, admin=False):
             return redirect(reverse('login'))
         return wrapper
     return require_login
+
+def require_guest(function):
+    def wrapper(request, *args, **kwargs):
+        if request.session.get('simbion_user', False):
+            return redirect(reverse('home'))
+        else:
+            return function(request, *args, **kwargs)
+    return wrapper
