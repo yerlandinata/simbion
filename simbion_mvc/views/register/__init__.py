@@ -1,0 +1,4 @@
+from .register_home import register, register_donatur
+from .register_mahasiswa import RegisterMahasiswaView
+from .register_donatur_individual import RegisterDonaturIndividualView
+from .register_donatur_yayasan import RegisterDonaturYayasanView
