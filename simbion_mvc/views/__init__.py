@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .login import login
+from .login import LoginView, logout
 from .register import register, register_donatur, register_donatur_individual, \
                       register_donatur_yayasan, register_mahasiswa
 from .register_beasiswa import register_beasiswa
@@ -12,4 +12,6 @@ from .info_beasiswa import info_beasiswa
 from .detail_beasiswa import detail_beasiswa
 
 def home(request):
-    return render(request, 'landing/index.html')
+    context = {}
+    context['simbion_user'] = request.session.get('simbion_user', False)
+    return render(request, 'landing/index.html', context)

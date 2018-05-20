@@ -13,54 +13,60 @@
                         {% if not simbion_user %}
                         <li class="p-2 nav-item role-norole"><a type="button" class="btn btn-light text-right" href="{% url 'login' %}">Login / Register</a></li>
                         {% else %}
+                        {% if simbion_user.role == 'mahasiswa' %}
                         <li class="p-2 nav-item role-mahasiswa">
                             <div class="dropdown">
                                 <div class="btn dropdown-toggle nav-link text-right" type="button" data-toggle="dropdown">Menu Mahasiswa
                                     <span class="caret"></span></div>
                                     <div class="dropdown-menu container bg-dark shadow-lg">
                                         <div class="d-flex flex-column">
-                                            <a href="/info-beasiswa" class="p-2 text-center border-bottom role-mahasiswa nav-link">Lihat Status Beasiswa</a>
-                                            <a href="/register-beasiswa" class="p-2 text-center border-bottom role-mahasiswa nav-link">Lamar Beasiswa</a>
-                                            <a href="/info-beasiswa" class="p-2 text-center border-bottom role-mahasiswa nav-link">Lihat Hasil Seleksi</a>
+                                            <a href="{% url 'info-beasiswa' %}" class="p-2 text-center border-bottom role-mahasiswa nav-link">Lihat Status Beasiswa</a>
+                                            <a href="{% url 'register-beasiswa' %}" class="p-2 text-center border-bottom role-mahasiswa nav-link">Lamar Beasiswa</a>
+                                            <a href="{% url 'info-beasiswa' %}" class="p-2 text-center border-bottom role-mahasiswa nav-link">Lihat Hasil Seleksi</a>
                                         </div>
                                     </div>
                             </div> 
                         </li>
+                        {% endif %}
+                        {% if simbion_user.role == 'donatur' %}
                         <li class="p-2 nav-item role-donatur">
                             <div class="dropdown">
                                 <div class="btn dropdown-toggle nav-link text-right" type="button" data-toggle="dropdown">Menu Donatur
                                     <span class="caret"></span></div>
                                     <div class="dropdown-menu container bg-dark shadow-lg">
                                         <div class="d-flex flex-column">
-                                            <a href="/give-beasiswa" class="p-2 text-center border-bottom role-donatur nav-link">Lihat Beasiswa Anda</a>
-                                            <a href="/register-skema-beasiswa" class="p-2 text-center border-bottom role-donatur nav-link">Buat Beasiswa</a>
-                                            <a href="/pengumuman-beasiswa" class="p-2 text-center border-bottom role-donatur nav-link">Buat Pengumuman</a>
+                                            <a href="{% url 'give-beasiswa' %}" class="p-2 text-center border-bottom role-donatur nav-link">Lihat Beasiswa Anda</a>
+                                            <a href="{% url 'register-skema-beasiswa' %}" class="p-2 text-center border-bottom role-donatur nav-link">Buat Beasiswa</a>
+                                            <a href="{% url 'pengumuman' %}" class="p-2 text-center border-bottom role-donatur nav-link">Buat Pengumuman</a>
                                         </div>
                                     </div>
                             </div> 
                         </li>
+                        {% endif %}
+                        {% if simbion_user.role == 'admin' %}
                         <li class="p-2 nav-item role-admin">
                             <div class="dropdown">
                                 <div class="btn dropdown-toggle nav-link text-right" type="button" data-toggle="dropdown">Menu Admin
                                     <span class="caret"></span></div>
                                     <div class="dropdown-menu container bg-dark shadow-lg">
                                         <div class="d-flex flex-column">
-                                            <a href="/info-wawancara" class="p-2 text-center border-bottom role-admin nav-link">Lihat Tempat Wawancara</a>
-                                            <a href="/info-wawancara" class="p-2 text-center border-bottom role-admin nav-link">Buat Tempat Wawancara</a>
-                                            <a href="/pengumuman-beasiswa" class="p-2 text-center border-bottom role-admin nav-link">Buat Pengumuman</a>
+                                            <a href="{% url 'info-wawancara' %}" class="p-2 text-center border-bottom role-admin nav-link">Lihat Tempat Wawancara</a>
+                                            <a href="{% url 'info-wawancara' %}" class="p-2 text-center border-bottom role-admin nav-link">Buat Tempat Wawancara</a>
+                                            <a href="{% url 'pengumuman' %}" class="p-2 text-center border-bottom role-admin nav-link">Buat Pengumuman</a>
                                         </div>
                                     </div>
                             </div> 
                         </li>
+                        {% endif %}
                         <li class="p-2 nav-item role-admin role-donatur role-mahasiswa">
                             <div class="dropdown">
                                 <div class="btn dropdown-toggle nav-link" type="button" data-toggle="dropdown">
-                                    <span class="simbion-user-name"></span>
+                                    <span class="simbion-user-name">{{ simbion_user.username }}</span>
                                     <span class="caret"></span>
                                 </div>
                                     <div class="dropdown-menu container shadow-sm">
                                         <div class="d-flex flex-column">
-                                            <div class="p-2 text-center btn" onclick="logout()">Logout</div>
+                                            <a class="btn btn-light" href="{% url 'logout'%}">Logout</a>
                                         </div>
                                     </div>
                             </div> 
