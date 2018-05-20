@@ -33,8 +33,7 @@ class SkemaBeasiswaAktif(Entity):
         return self.data['status']
 
     def __str__(self):
-        return 'Skema Beasiswa Aktif: Kode skema beasiswa={}, nomor urut={}, ' +
-                'Tanggal mulai pendaftaran={}, Tanggal tutup pendaftaran={}'.format(
+        return 'Skema Beasiswa Aktif: Kode skema beasiswa={}, nomor urut={}, Tanggal mulai pendaftaran={}, Tanggal tutup pendaftaran={}, Status={}'.format(
                 self.getKodeSkemaBeasiswa(), self.getNoUrut(), 
                 self.getTglMulaiPendaftaran(), self.getTglTutupPendaftaran(),
                 self.getPeriodePenerimaan(), self.getStatus()
