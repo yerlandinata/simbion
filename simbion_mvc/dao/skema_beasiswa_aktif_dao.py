@@ -35,3 +35,4 @@ def save(skema_beasiswa_aktif):
     LOGGER.debug('inserting {} into database...'.format(skema_beasiswa_aktif))
     cursor.execute(insert_query)
     LOGGER.debug('inserted {} into database!'.format(skema_beasiswa_aktif))
+    
