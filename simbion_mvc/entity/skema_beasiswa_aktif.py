@@ -2,7 +2,8 @@ from .entity import Entity
 
 class SkemaBeasiswaAktif(Entity):
 
-    def __init__(self, skema_beasiswa,kode_skema_beasiswa, 
+    def __init__(self, skema_beasiswa, 
+                kode_skema_beasiswa, 
                 no_urut, 
                 tgl_mulai_pendaftaran, 
                 tgl_tutup_pendaftaran, 

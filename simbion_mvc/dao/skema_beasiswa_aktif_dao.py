@@ -16,7 +16,7 @@ def get_by_kode_and_noUrut(kode_skema_beasiswa,no_urut):
     return result
     if result is None:
         raise EmptyResultSet('Beasiswa Aktif with kode \'{}\' and nomor urut \'{}\'does not exists'.format(kode_skema_beasiswa,no_urut))
-    return SkemaBeasiwaAktif(skema_beasiswa_dao.getKodeSkemaBeasiswa(result[0]), result[1], result[2], result[3], result[4],result[5])
+    return SkemaBeasiwaAktif(skema_beasiswa_dao.get_by_Kode(result[0]), result[0], result[1], result[2], result[3], result[4],result[5])
 
 def save(skema_beasiswa_aktif):
     insert_query = '''
