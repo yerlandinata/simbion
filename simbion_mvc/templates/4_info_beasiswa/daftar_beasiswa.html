@@ -1,5 +1,6 @@
 <!-- Pendaftaran beasiswa -->
 <!-- CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style>
     #informasi-beasiswa{
         display: none;
@@ -39,24 +40,41 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Bank Indonesia</td>
-                    <td>9/11/2019</td>
-                    <td>Dibuka</td>
-                    <td>93</td>
-                    <td><a href="{% url 'detail-beasiswa' %}" class="btn btn-default">Lihat Beasiswa</a></td>
-                </tr>
                 {% if beasiswa_list %}
                     {% for beasiswa in beasiswa_list %}
                     <tr>
-                        <td>{{beasiswa.nama}}</td>
-                        <td>{{beasiswa.tgl_tutup_pendaftaran}}</td>
-                        <td>Dibuka</td>
-                        <td>{{beasiswa.jumlah_pendaftar}}</td>
-                        <td><a href="{% url 'detail-beasiswa' %}" class="btn btn-default">Lihat Beasiswa</a></td>
+                        <td>{{beasiswa.getSkemaBeasiswa.getNama}}</td>
+                        <td>{{beasiswa.getTglTutupPendaftaran}}</td>
+                        <td>{{beasiswa.getStatus}}</td>
+                        <td>{{beasiswa.getJumlahPendaftar}}</td>
+                        <td><a href="{% url 'detail-beasiswa' id_skema_beasiswa=beasiswa.getSkemaBeasiswa.getKode id_skema_beasiswa_aktif=beasiswa.getNoUrut %}" class="btn btn-default">Lihat Beasiswa</a></td>
                     </tr>
                     {% endfor %}
                 {% endif %}
             </tbody>
     </table>
+    <!--Pagination method -->
+    {% if beasiswa_list.has_other_pages %}
+    <ul class="pagination">
+        {% if beasiswa_list.has_previous %}
+            <li><a href="?page={{ beasiswa_list.previous_page_number }}">&laquo;</a></li>
+        {% else %}
+            <li class="disabled"><span>&laquo;</span></li>
+        {% endif %}
+        {% for i in beasiswa_list.paginator.page_range %}
+            {% if beasiswa_list.number == i %}
+                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+                <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if beasiswa.has_next %}
+            <li><a href="?page={{ beasiswa_list.next_page_number }}">&raquo;</a></li>
+        {% else %}
+            <li class="disabled"><span>&raquo;</span></li>
+        {% endif %}
+    </ul>
+    {% endif %}  
 </div>
+
+    
