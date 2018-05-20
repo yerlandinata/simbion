@@ -1,6 +1,6 @@
 from .entity import Entity
 
-class skema_beasiswa(Entity):
+class SkemaBeasiswa(Entity):
 
     def __init__(self, kode, nama, jenis, deskripsi, nomor_identitas_donatur):
         super().__init__({'kode':kode, 'jenis': jenis, 'deskripsi': deskripsi, 'nomor_identitas_donatur': nomor_identitas_donatur})
