@@ -1,4 +1,4 @@
-from . import Entity, User
+from . import Entity
 
 class DonaturIndividual(Entity):
 

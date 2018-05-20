@@ -1,8 +1,8 @@
 import logging
 from django.db import connection
 from django.core.exceptions import EmptyResultSet
-from . import user_dao
 from simbion_mvc.entity import Mahasiswa
+from . import user_dao
 
 LOGGER = logging.getLogger(__name__)
 
