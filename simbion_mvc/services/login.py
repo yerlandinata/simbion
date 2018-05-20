@@ -53,3 +53,11 @@ def require_guest(function):
         else:
             return function(request, *args, **kwargs)
     return wrapper
+
+def require_guest_method(method):
+    def wrapper(self, request, *args, **kwargs):
+        if request.session.get('simbion_user', False):
+            return redirect(reverse('home'))
+        else:
+            return method(self, request, *args, **kwargs)
+    return wrapper
