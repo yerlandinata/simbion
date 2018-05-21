@@ -30,6 +30,9 @@ class Pendaftaran(Entity):
     def getStatusTerima(self):
         return self.data['status_terima']
 
+    def getMahasiswa(self):
+        return self.__mahasiswa
+
     def __repr__(self) :
         return 'Pendaftaran : nomor urut = {}, kode skema beasiswa = {} ,NPM Mahasiswa = {}, \
           waktu daftar = {} , status daftar = {} , status_terima = {}'.format(self.getNoUrut(),self.getKodeSkemaBeasiswa(),

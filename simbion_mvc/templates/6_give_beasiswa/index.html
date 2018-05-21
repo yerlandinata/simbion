@@ -20,11 +20,11 @@ table, th, td {
  {% for isi in table_content %}
 
      <tr>
-     <td>{{ isi.noUrut }}</td>
-     <td>{{ isi.nama }}</td>
-     <td>{{ isi.npm }}</td>
-     <td>{{ isi.waktu }}</td>
-     <td>{{ isi.status }}</td>
+     <td>{{ isi.getNoUrut }}</td>
+     <td>{{ isi.getMahasiswa.getNama }}</td>
+     <td>{{ isi.getNPM }}</td>
+     <td>{{ isi.getWaktuDaftar }}</td>
+     <td>{{ isi.getStatusDaftar }}</td>
      <td>
          <div class="btn-group-vertical">
           <input type="submit" class="btn btn-info" value="Terima">
