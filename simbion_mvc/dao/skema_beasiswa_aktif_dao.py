@@ -37,11 +37,14 @@ def save(skema_beasiswa_aktif):
     cursor.execute(insert_query)
     LOGGER.debug('inserted {} into database!'.format(skema_beasiswa_aktif))
 
-def getall():
+def getall(limit=None):
     cursor = connection.cursor()
-    cursor.execute('SELECT kode_skema_beasiswa,no_urut,tgl_mulai_pendaftaran,\
+    perintah = 'SELECT kode_skema_beasiswa,no_urut,tgl_mulai_pendaftaran,\
                     tgl_tutup_pendaftaran,periode_penerimaan,status,jumlah_pendaftar\
-                    FROM skema_beasiswa_aktif')
+                    FROM skema_beasiswa_aktif'
+    if limit is not None :
+        perintah += " limit {}".format(limit) 
+    cursor.execute(perintah)
     result = cursor.fetchall()
     hasil = []
     if result is None:
