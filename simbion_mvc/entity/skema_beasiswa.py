@@ -10,7 +10,7 @@ class SkemaBeasiswa(Entity):
                 'deskripsi': deskripsi, 
                 'donatur': donatur
             })
-        self.__donatur = donatur_dao.get_by_id(donatur)
+        self.__donatur = donatur
 
     def getKode(self):
         return self.data['kode']
