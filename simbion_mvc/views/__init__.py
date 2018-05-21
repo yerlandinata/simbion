@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .login import LoginView, logout
-from .register import register, register_donatur, register_donatur_individual, \
-                      register_donatur_yayasan, register_mahasiswa
+from .register import * # carefully imported everything
 from .register_beasiswa import register_beasiswa
 from .give_beasiswa import give_beasiswa
 from .wawancara import wawancara

@@ -34,3 +34,11 @@ class DonaturYayasan(Entity):
 
     def __str__(self):
         return self.__repr__()
+
+    def isValid(self):
+        return (0 < len(self.getNoSk()) <= 20
+                and 0 < len(self.getEmail()) <= 50
+                and 0 < len(self.getNama()) <= 50
+                and 0 < len(self.getNoTelp()) <= 20
+                and self.getDonatur().isValid()
+            )

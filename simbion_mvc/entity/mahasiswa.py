@@ -57,3 +57,17 @@ class Mahasiswa(Entity):
     
     def __str__(self):
         return self.__repr__()
+
+    def isValid(self):
+        return (
+                0 < len(self.getNpm()) <= 20 
+                and 0 < len(self.getEmail()) < 20 
+                and 0 < len(self.getNama()) <= 50 
+                and 0 <= len(self.getNoTelp()) <= 20 
+                and 0 < len(self.getAlamatTinggal()) <= 50 
+                and 0 < len(self.getAlamatDomisili()) <= 50
+                and 0 < len(self.getNamaBank()) <= 50
+                and 0 < len(self.getNoRekening()) <= 20
+                and 0 < len(self.getNamaPemilikRekening()) <= 20
+                and self.getUser().isValid()
+            )

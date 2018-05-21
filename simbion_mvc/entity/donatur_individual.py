@@ -21,3 +21,8 @@ class DonaturIndividual(Entity):
     def __str__(self):
         return self.__repr__()
         
+    def isValid(self):
+        return (
+                len(self.getNik()) == 16 
+                and self.getDonatur().isValid()
+            )
