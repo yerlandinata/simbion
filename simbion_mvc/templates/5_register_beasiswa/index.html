@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block body %}
-<form>
+    {% if success %}
+    <p>Terima kasih , anda telah terdaftar</p>
+    {% else %}
+<form action="{% url 'register-beasiswa' id_skema_beasiswa=skema_default.getSkemaBeasiswa.getKode id_skema_beasiswa_aktif=skema_default.getNoUrut %}" method="post">
+{% csrf_token %}
 <div class="form-group">
     <div class="row">
         <div class="col-2">
@@ -9,11 +13,18 @@
         </div>
     <div class="col-10">
             <select name="Kode_beasiswa">
-                {% for data in kode_list %}
-            <option value="{{ data }}">
-                {{ data }}
+            {% if skema_default %}
+            <option value="{{ skema_default.getSkemaBeasiswa.getKode }}">
+                {{ skema_default.getSkemaBeasiswa.getKode }}
+            </option>
+            {% else %}
+                {% for data in skema %}
+            <option value="{{ skema_default.getSkemaBeasiswa.getKode }}">
+                {{ data.getSkemaBeasiswa.getKode }}
             </option>
                     {% endfor %}
+            {% endif %}
+
           </select>
         </div>
             </div>
@@ -44,7 +55,8 @@
         <label for="example">Indeks Prestasi Semester</label>
           </div>
           <div class="col-10">
-        <input class="form-control" id="example" type="text" name="text">
+        <input class="form-control" id="ips" type="text" name="ips" required>
+
           </div>
       </div>
       <div>
@@ -52,4 +64,5 @@
       </div>
 </div>
 </form>
+    {% endif %}
 {% endblock %}
