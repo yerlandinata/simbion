@@ -4,7 +4,7 @@ from simbion_mvc.dao import skema_beasiswa_aktif_dao
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 response = {}
-def info_beasiswa(request):
+def info_beasiswa(request,):
     beasiswa_list_all = skema_beasiswa_aktif_dao.getall()
     #ToDo IMPLEMENT METHOD TO GET BEASISWA LIST
     
