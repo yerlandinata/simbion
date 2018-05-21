@@ -33,6 +33,19 @@ def register_donatur_individual(donatur_individual):
         raise InvalidRegistrationException()
     logger.debug('donatur individual registration successful!')
 
+def register_donatur_yayasan(donatur_yayasan):
+    logger.debug('attempting to register donatur individual:' + str(donatur_yayasan))
+    if not donatur_yayasan.isValid():
+        raise InvalidRegistrationException()
+    register_donatur(donatur_yayasan.getDonatur())
+    try:
+        donatur_yayasan_dao.save(donatur_yayasan)
+    except (DataError, IntegrityError) as e:
+        logger.debug(str(e))
+        logger.debug('donatur yayasan registration error: donatur sk already exists')
+        raise InvalidRegistrationException()
+    logger.debug('donatur yayasan registration successful!')
+
 def register_donatur(donatur):
     logger.debug('attempting to register donatur:' + str(donatur))
     if not donatur.isValid():
