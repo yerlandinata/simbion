@@ -1,4 +1,28 @@
-from django.shortcuts import render
+import logging
+from django.shortcuts import render, reverse, redirect
+from django.views.generic import TemplateView
+from simbion_mvc.services.login import Login, LoginFailedException, attempt_login, require_guest_method, require_role
 
-def login(request):
-    return render(request, '1_login/index.html')
+class LoginView(TemplateView):
+
+    template_name = '1_login/index.html'
+
+    @require_guest_method
+    def get(self, request, *args, **kwargs):
+        return render(request, LoginView.template_name)
+
+    @require_guest_method
+    def post(self, request, *args, **kwargs):
+        response = dict()
+        try:
+            user = attempt_login(Login(request.POST['username'], request.POST['password']))
+        except LoginFailedException:
+            response['login_error'] = True
+            return render(request, LoginView.template_name, response)
+        request.session['simbion_user'] = user.data
+        return redirect(reverse('home'))
+
+@require_role(mahasiswa=True, admin=True, donatur=True) # means: any role
+def logout(request, *args, **kwargs):
+    request.session['simbion_user'] = False
+    return redirect(reverse('home'))
