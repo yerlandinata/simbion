@@ -20,4 +20,5 @@ urlpatterns = [
     path('beasiswa/<int:id_skema_beasiswa>/<int:id_skema_beasiswa_aktif>', views.detail_beasiswa, name='detail-beasiswa'),
     path('pengumuman', views.pengumuman, name='pengumuman'),
     path('beasiswa/pembayaran', views.pengumuman, name='pembayaran'),
+    path('beasiswa/beasiswa/baru', views.register_skema_beasiswa, name='daftar-beasiswa-baru'),
 ]
