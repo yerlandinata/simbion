@@ -30,6 +30,27 @@ def get_by_npm(mahasiswa):
     return Pendaftaran(skema_beasiswa_aktif_dao.get_by_skema_beasiswa_and_no_urut(skema_beasiswa_dao.get_by_kode(result[1]), result[0]),
                        mahasiswa_dao.get_by_npm(result[2]), result[3],
                        result[4], result[5])
+def getAll(limit=None):
+    cursor = connection.cursor()
+    query = '''
+    SELECT no_urut,kode_skema_beasiswa,npm,waktu_daftar,status_daftar,status_terima
+    FROM PENDAFTARAN
+    '''
+    if limit is not None:
+        query+='''
+         LIMIT='{}'
+        '''.format(limit)
+    cursor.execute(query)
+    result = cursor.fetchall()
+    hasil = []
+    if result is None:
+        raise EmptyResultSet('Skema Pendaftaran belum ada isinya')
+    for content in result:
+        pendaftaran = Pendaftaran(skema_beasiswa_aktif_dao.get_by_skema_beasiswa_and_no_urut(skema_beasiswa_dao.get_by_kode(result[1]), result[0]),
+                       mahasiswa_dao.get_by_npm(result[2]), result[3],
+                       result[4], result[5])
+        hasil.append(pendaftaran)
+    return hasil
 
 def save(pendaftaran):
     insert_query = '''
