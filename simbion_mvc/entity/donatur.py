@@ -42,3 +42,14 @@ class Donatur(Entity):
     
     def __str__(self):
         return self.__repr__()
+
+    def isValid(self):
+        return (
+                0 < len(self.getNama()) <= 50 
+                and 0 < len(self.getId()) < 20 
+                and 0 <= len(self.getEmail()) <= 50 
+                and len(self.getNpwp()) == 20
+                and 0 < len(self.getNoTelp()) <= 50
+                and 0 < len(self.getAlamat()) <= 50
+                and self.getUser().isValid()
+            )

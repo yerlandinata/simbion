@@ -9,7 +9,11 @@ class LoginView(TemplateView):
 
     @require_guest_method
     def get(self, request, *args, **kwargs):
-        return render(request, LoginView.template_name)
+        context = dict()
+        print(request.GET)
+        if 'register_success' in request.GET:
+            context['register_success'] = True
+        return render(request, LoginView.template_name, context)
 
     @require_guest_method
     def post(self, request, *args, **kwargs):

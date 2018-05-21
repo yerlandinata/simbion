@@ -10,6 +10,7 @@ ssh yudhistira.erlandinata@kawung.cs.ui.ac.id "
     ';
     scp -r . enau.cs.ui.ac.id:~/web;
     ssh enau.cs.ui.ac.id '
+        source .profile;
         cd web;
         export all_proxy=\"http://proxy.cs.ui.ac.id:8080/\";
         python3 -m virtualenv env; source env/bin/activate;
