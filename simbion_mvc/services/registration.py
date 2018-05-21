@@ -20,6 +20,32 @@ def register_mahasiswa(mahasiswa):
         raise InvalidRegistrationException()
     logger.debug('mahasiswa registration successful!')
 
+def register_donatur_individual(donatur_individual):
+    logger.debug('attempting to register donatur individual:' + str(donatur_individual))
+    if not donatur_individual.isValid():
+        raise InvalidRegistrationException()
+    register_donatur(donatur_individual.getDonatur())
+    try:
+        donatur_individual_dao.save(donatur_individual)
+    except (DataError, IntegrityError) as e:
+        logger.debug(str(e))
+        logger.debug('donatur individual registration error: donatur nik already exists')
+        raise InvalidRegistrationException()
+    logger.debug('donatur individual registration successful!')
+
+def register_donatur(donatur):
+    logger.debug('attempting to register donatur:' + str(donatur))
+    if not donatur.isValid():
+        raise InvalidRegistrationException()
+    register_user(donatur.getUser())
+    try:
+        donatur_dao.save(donatur)
+    except (DataError, IntegrityError) as e:
+        logger.debug(str(e))
+        logger.debug('donatur registration error: donatur id already exists')
+        raise InvalidRegistrationException()
+    logger.debug('donatur registration successful!')
+
 def register_user(user):
     logger.debug('attempting to register user:' + str(user))
     if not user.isValid():
