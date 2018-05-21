@@ -36,3 +36,20 @@ def save(skema_beasiswa_aktif):
     LOGGER.debug('inserting {} into database...'.format(skema_beasiswa_aktif))
     cursor.execute(insert_query)
     LOGGER.debug('inserted {} into database!'.format(skema_beasiswa_aktif))
+
+def getall(limit=None):
+    cursor = connection.cursor()
+    perintah = 'SELECT kode_skema_beasiswa,no_urut,tgl_mulai_pendaftaran,\
+                    tgl_tutup_pendaftaran,periode_penerimaan,status,jumlah_pendaftar\
+                    FROM skema_beasiswa_aktif'
+    if limit is not None :
+        perintah += " limit {}".format(limit) 
+    cursor.execute(perintah)
+    result = cursor.fetchall()
+    hasil = []
+    if result is None:
+        raise EmptyResultSet('Skema Beasiswa Aktif belum ada isinya')
+    for isi in result :
+        skema = SkemaBeasiswaAktif(skema_beasiswa_dao.get_by_kode(isi[0]), isi[1], isi[2], isi[3], isi[4], isi[5], isi[6]) 
+        hasil.append(skema)
+    return hasil

@@ -12,7 +12,8 @@ urlpatterns = [
     path('register/donatur', views.register_donatur, name='register-donatur'),
     path('register/donatur/individual', views.RegisterDonaturIndividualView.as_view(), name='register-donatur-individual'),
     path('register/donatur/yayasan', views.RegisterDonaturYayasanView.as_view(), name='register-donatur-yayasan'),
-    path('beasiswa/apply', views.register_beasiswa, name='register-beasiswa'),
+    path('beasiswa/<int:id_skema_beasiswa>/<int:id_skema_beasiswa_aktif>/apply', views.register_beasiswa, name='register-beasiswa'),
+    path('beasiswa/apply', views.register_beasiswa, name='register-beasiswa-home'),
     path('beasiswa/admin/selection', views.give_beasiswa, name='give-beasiswa'),
     path('beasiswa/admin/add', views.register_skema_beasiswa, name='register-skema-beasiswa'),
     path('beasiswa/wawancara', views.wawancara, name='wawancara'),
@@ -20,4 +21,5 @@ urlpatterns = [
     path('beasiswa/<int:id_skema_beasiswa>/<int:id_skema_beasiswa_aktif>', views.detail_beasiswa, name='detail-beasiswa'),
     path('pengumuman', views.pengumuman, name='pengumuman'),
     path('beasiswa/pembayaran', views.pengumuman, name='pembayaran'),
+    path('beasiswa/beasiswa/baru', views.register_skema_beasiswa, name='daftar-beasiswa-baru'),
 ]

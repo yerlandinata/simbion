@@ -1,5 +1,5 @@
 from .entity import Entity
-
+from simbion_mvc.dao import donatur_dao
 class SkemaBeasiswa(Entity):
 
     def __init__(self, donatur, kode, nama, jenis, deskripsi):
