@@ -17,10 +17,12 @@
 
     <p class="text-center font-italic">Semua orang berhak memperoleh kesempatan yang sama dalam memperoleh pendidikan tinggi.</p>
 
+    {% if not   simbion_user %}
     <div class="d-flex flex-row m-4 justify-content-center flex-wrap">
         <div class="p-2"><a href="{% url 'login' %}" class="btn btn-light btn-lg"><h2>Masuk</h2></a></div>
         <div class="p-2"><a href="{% url 'register' %}" class="btn btn-light btn-lg"><h2>Daftar</h2></a></div>
     </div>
+    {% endif %}
 </div>
 <div id="bawah">
     <!-- ADDITIONAL TABLE -->
